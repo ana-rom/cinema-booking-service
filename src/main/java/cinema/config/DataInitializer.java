@@ -1,6 +1,7 @@
 package cinema.config;
 
 import cinema.model.Role;
+import cinema.model.Role.RoleName;
 import cinema.model.User;
 import cinema.service.RoleService;
 import cinema.service.ShoppingCartService;
@@ -26,11 +27,11 @@ public class DataInitializer {
     @PostConstruct
     public void inject() {
         Role adminRole = new Role();
-        adminRole.setRoleName(Role.RoleName.ADMIN);
+        adminRole.setRoleName(RoleName.ADMIN);
         roleService.add(adminRole);
 
         Role userRole = new Role();
-        userRole.setRoleName(Role.RoleName.USER);
+        userRole.setRoleName(RoleName.USER);
         roleService.add(userRole);
 
         User testAdmin = new User();
