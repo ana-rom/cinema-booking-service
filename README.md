@@ -33,6 +33,10 @@ Both of them have access to the system but different roles to play:</br>
 |                                            | complete the order and check their order history    |                           
 
 
+Visual representation of the project structure along with its main classes, actions, and connections is below: </br>
+
+<img height="576" src="img/diagram.png" width="852"/>
+
 ## 👩‍💻 How it works
 
 ----
@@ -51,14 +55,24 @@ Both of them have access to the system but different roles to play:</br>
 ### Configuration
 
 ➡️️ Clone the project from GitHub </br>
-➡️️ Configure connection to DB in [db.properties](src/main/resources/db.properties) file in src/main/resources </br>
-
+➡️️ Configure connection to DB in [db.properties](src/main/resources/db.properties) file in resources directory </br>
 
         db.driver=YOUR_DATABASE_DRIVER
         db.url=YOUR_DATABASE_URL
         db.user=YOUR_DATABASE_USERNAME
         db.password=YOUR_DATABASE_PASSWORD
 
+➡️️ Add a default admin with login and password in [DataInitializer class](src/main/java/cinema/config/DataInitializer.java) in cinema.config package </br> 
+
+        Role adminRole = new Role();
+        adminRole.setRoleName(RoleName.ADMIN);
+        roleService.add(adminRole);
+
+        User admin = new User();
+        admin.setEmail("admin@gmail.com");
+        admin.setPassword("123456789");
+        admin.setRoles(Set.of(adminRole));
+        userService.add(admin);
 
 ➡️️ Configure your local Tomcat server (recommended to use [v.9.0.50](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.50/)). </br>
 ➡️️ Take your seat, run the app, it's movie time! 🍿🎬
