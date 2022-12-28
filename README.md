@@ -55,24 +55,17 @@ Visual representation of the project structure along with its main classes, acti
 ### Configuration
 
 ➡️️ Clone the project from GitHub </br>
-➡️️ Configure connection to DB in [db.properties](src/main/resources/db.properties) file in resources directory </br>
+➡️️ Configure connection to DB in [db.properties](src/main/resources/db.properties) file in _resources directory_ </br>
 
         db.driver=YOUR_DATABASE_DRIVER
         db.url=YOUR_DATABASE_URL
         db.user=YOUR_DATABASE_USERNAME
         db.password=YOUR_DATABASE_PASSWORD
 
-➡️️ Add a default admin with login and password in [DataInitializer class](src/main/java/cinema/config/DataInitializer.java) in cinema.config package </br> 
+➡️️ You can add your personalized admin with login and password in [DataInitializer class](src/main/java/cinema/config/DataInitializer.java) in _cinema.config package_ or use test admin credentials: </br>
 
-        Role adminRole = new Role();
-        adminRole.setRoleName(RoleName.ADMIN);
-        roleService.add(adminRole);
-
-        User admin = new User();
-        admin.setEmail("admin@gmail.com");
-        admin.setPassword("123456789");
-        admin.setRoles(Set.of(adminRole));
-        userService.add(admin);
+        test admin email: "testadmin@gmail.com";
+        test admin password: "123456789";
 
 ➡️️ Configure your local Tomcat server (recommended to use [v.9.0.50](https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.50/)). </br>
 ➡️️ Take your seat, run the app, it's movie time! 🍿🎬
